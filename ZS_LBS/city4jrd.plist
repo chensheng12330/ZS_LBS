@@ -22,7 +22,7 @@
 			<key>latitude</key>
 			<string></string>
 			<key>select</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>StoreID</key>
