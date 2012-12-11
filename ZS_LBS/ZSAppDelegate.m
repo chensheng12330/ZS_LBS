@@ -7,8 +7,10 @@
 //
 
 #import "ZSAppDelegate.h"
-
 #import "ZSViewController.h"
+
+
+
 
 @implementation ZSAppDelegate
 
@@ -16,15 +18,28 @@
 {
     [_window release];
     [_viewController release];
+    [_navController release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //_mapManager = [[BMKMapManager alloc]init];
+    BMKMapManager* _mapManager;
+    _mapManager = [[BMKMapManager alloc] init];
+	BOOL ret = [_mapManager start:@"F8D6028F9BCDEF671DBF2F6AE065DF29583AE350" generalDelegate:self];
+	if (!ret) {
+		NSLog(@"manager start failed!");
+	}
+
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[ZSViewController alloc] initWithNibName:@"ZSViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    self.navController = [[UINavigationController alloc]initWithRootViewController:_viewController];
+    
+    self.window.rootViewController = _navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMapKit.h"
 
 @interface ZSViewController : UIViewController
+<UITableViewDataSource,UITableViewDelegate,
+BMKMapViewDelegate, BMKSearchDelegate>
 {
-    
+    BMKSearch* _search;
+    NSMutableDictionary *myDicTableData;
+    NSArray *keys;
 }
+@property (retain, nonatomic) IBOutlet UITableView *myTableView;
+
+-(void) Commit:(UIBarButtonItem*)sender;
 @end
