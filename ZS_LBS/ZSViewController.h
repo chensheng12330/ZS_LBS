@@ -14,10 +14,17 @@
 BMKMapViewDelegate, BMKSearchDelegate>
 {
     BMKSearch* _search;
+    BMKMapView* _mapView;
+    
     NSMutableDictionary *myDicTableData;
     NSArray *keys;
+    
+    BOOL isGetLoction;
 }
 @property (retain, nonatomic) IBOutlet UITableView *myTableView;
+@property (retain, nonatomic) IBOutlet UIView *myTableHeadView;
+
+- (IBAction)RefreshLoctionLBS:(UIButton *)sender;
 
 -(void) Commit:(UIBarButtonItem*)sender;
 @end

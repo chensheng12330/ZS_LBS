@@ -38,7 +38,7 @@
     // Override point for customization after application launch.
     self.viewController = [[[ZSViewController alloc] initWithNibName:@"ZSViewController" bundle:nil] autorelease];
     
-    self.navController = [[UINavigationController alloc]initWithRootViewController:_viewController];
+    _navController = [[UINavigationController alloc]initWithRootViewController:_viewController];
     
     self.window.rootViewController = _navController;
     [self.window makeKeyAndVisible];

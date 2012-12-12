@@ -18,11 +18,13 @@
 			<key>Address</key>
 			<string>雨花区人民中路526号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>113.01328</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.1904</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -36,11 +38,13 @@
 			<key>Address</key>
 			<string>雨花区劳动中路200号(近肯德基)</string>
 			<key>longitude</key>
-			<string></string>
+			<string>113.008164</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.170964</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -54,11 +58,13 @@
 			<key>Address</key>
 			<string>黄土岭路306</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.994363</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.165742</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -72,11 +78,13 @@
 			<key>Address</key>
 			<string>桐梓坡路53号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.95243</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.224305</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -90,11 +98,13 @@
 			<key>Address</key>
 			<string>建湘路69号附近</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.991561</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.193545</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -108,11 +118,13 @@
 			<key>Address</key>
 			<string>芙蓉区车站北路2号(友谊阿波罗广场斜对面)</string>
 			<key>longitude</key>
-			<string></string>
+			<string>113.017701</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.203704</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -126,11 +138,13 @@
 			<key>Address</key>
 			<string>南湖路220号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.984768</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.171581</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -144,11 +158,13 @@
 			<key>Address</key>
 			<string>蔡锷北路150号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.988203</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.208887</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>岳阳</key>
@@ -165,11 +181,13 @@
 			<key>Address</key>
 			<string>花板桥路45</string>
 			<key>longitude</key>
-			<string></string>
+			<string>113.130318</string>
 			<key>latitude</key>
-			<string></string>
+			<string>29.372752</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -181,13 +199,15 @@
 			<key>City</key>
 			<string>岳阳市</string>
 			<key>Address</key>
-			<string>岳湖路45号</string>
+			<string>迎春南路105号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>113.122645</string>
 			<key>latitude</key>
-			<string></string>
+			<string>29.150671</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>湘潭</key>
@@ -204,11 +224,13 @@
 			<key>Address</key>
 			<string>芙蓉中路38号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.950576</string>
 			<key>latitude</key>
-			<string></string>
+			<string>27.836245</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>益阳</key>
@@ -223,13 +245,35 @@
 			<key>City</key>
 			<string>益阳市</string>
 			<key>Address</key>
-			<string>赫山区海棠路489</string>
+			<string>赫山区海棠路276</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.361187</string>
 			<key>latitude</key>
-			<string></string>
+			<string>28.566401</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>StoreID</key>
+			<string>15</string>
+			<key>StoreName</key>
+			<string>家润多超市</string>
+			<key>Province</key>
+			<string>湖南省</string>
+			<key>City</key>
+			<string>益阳市</string>
+			<key>Address</key>
+			<string>长春路49号</string>
+			<key>longitude</key>
+			<string>112.338951</string>
+			<key>latitude</key>
+			<string>28.60169</string>
+			<key>select</key>
+			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>娄底</key>
@@ -244,13 +288,15 @@
 			<key>City</key>
 			<string>娄底</string>
 			<key>Address</key>
-			<string>长青中街37号</string>
+			<string>石马路8号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>112.019146</string>
 			<key>latitude</key>
-			<string></string>
+			<string>27.73617</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>StoreID</key>
@@ -264,11 +310,13 @@
 			<key>Address</key>
 			<string>湖南省娄底市涟源市</string>
 			<key>longitude</key>
-			<string></string>
+			<string>111.68034</string>
 			<key>latitude</key>
-			<string></string>
+			<string>27.694429</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 	<key>常德</key>
@@ -285,11 +333,13 @@
 			<key>Address</key>
 			<string>木板路110号</string>
 			<key>longitude</key>
-			<string></string>
+			<string>111.705173</string>
 			<key>latitude</key>
-			<string></string>
+			<string>29.036152</string>
 			<key>select</key>
 			<false/>
+			<key>distance</key>
+			<string></string>
 		</dict>
 	</array>
 </dict>
