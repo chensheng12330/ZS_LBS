@@ -20,9 +20,11 @@ BMKMapViewDelegate, BMKSearchDelegate>
     NSArray *keys;
     
     BOOL isGetLoction;
+    int  nCheckLoctionTime;
 }
 @property (retain, nonatomic) IBOutlet UITableView *myTableView;
 @property (retain, nonatomic) IBOutlet UIView *myTableHeadView;
+@property (retain, nonatomic) IBOutlet UIView *myLoctionView;
 
 - (IBAction)RefreshLoctionLBS:(UIButton *)sender;
 
