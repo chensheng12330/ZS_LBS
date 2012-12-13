@@ -10,7 +10,7 @@
 #import "BMapKit.h"
 
 @interface ZSViewController : UIViewController
-<UITableViewDataSource,UITableViewDelegate,
+<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate,
 BMKMapViewDelegate, BMKSearchDelegate>
 {
     BMKSearch* _search;
@@ -21,7 +21,11 @@ BMKMapViewDelegate, BMKSearchDelegate>
     
     BOOL isGetLoction;
     int  nCheckLoctionTime;
+    CLLocationCoordinate2D currentLoction;
+    CLLocationManager* locationManager;
+    
 }
+
 @property (retain, nonatomic) IBOutlet UITableView *myTableView;
 @property (retain, nonatomic) IBOutlet UIView *myTableHeadView;
 @property (retain, nonatomic) IBOutlet UIView *myLoctionView;

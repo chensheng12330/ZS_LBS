@@ -9,23 +9,26 @@
 #import "ZSAppDelegate.h"
 #import "ZSViewController.h"
 
-
-
+BMKMapManager* _mapManager;
 
 @implementation ZSAppDelegate
+@synthesize window         = _window;
+@synthesize navController  = _navController;
+@synthesize viewController = _viewController;
 
 - (void)dealloc
 {
     [_window release];
     [_viewController release];
     [_navController release];
+    [_mapManager    release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    BMKMapManager* _mapManager;
+    
     _mapManager = [[BMKMapManager alloc] init];
     
 	BOOL ret = [_mapManager start:@"F8D6028F9BCDEF671DBF2F6AE065DF29583AE350" generalDelegate:self];

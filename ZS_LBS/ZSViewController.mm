@@ -21,8 +21,12 @@
 @end
 
 @implementation ZSViewController
-
+@synthesize myTableView    = _myTableView;
+@synthesize myLoctionView  = _myLoctionView;
+@synthesize myTableHeadView= _myTableHeadView;
 #define PI 3.1415926
+
+// other
 double LantitudeLongitudeDist(double lon1,double lat1,
                               double lon2,double lat2)
 {
@@ -85,6 +89,13 @@ double LantitudeLongitudeDist(double lon1,double lat1,
     //map
     _mapView = [[BMKMapView alloc] init];
     _mapView.delegate = self;
+    
+    //CLLocationManager
+//    locationManager = [[CLLocationManager alloc] init];
+//    locationManager.delegate = self;
+//    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//    locationManager.distanceFilter = 1000.0f;
+//    [locationManager startUpdatingLocation];
     
     
     _search = [[BMKSearch alloc]init];
@@ -163,11 +174,6 @@ double LantitudeLongitudeDist(double lon1,double lat1,
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *CellIdentifier = @"cell_id";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        
-//    }
     UITableViewCell *cell;
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"none"] autorelease];
     
@@ -200,7 +206,7 @@ double LantitudeLongitudeDist(double lon1,double lat1,
         UILabel *lab = (UILabel *)[cell viewWithTag:100];
         if (lab == NULL) {
             lab = [[UILabel alloc]initWithFrame:CGRectMake(180, 5, 100, 20)];
-            [lab setTextAlignment:NSTextAlignmentRight];
+            [lab setTextAlignment:UITextAlignmentRight];
             [lab setBackgroundColor:[UIColor clearColor]];
             [lab setFont:[UIFont systemFontOfSize:14]];
             [lab setText:disStr];
@@ -223,7 +229,6 @@ double LantitudeLongitudeDist(double lon1,double lat1,
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //BOOL bl = cell.accessoryType;
     
     if([self GetAllCheckStore].count>=5 && cell.accessoryType==UITableViewCellAccessoryNone){ [tableView deselectRowAtIndexPath:indexPath animated:YES]; return;}
     
@@ -281,10 +286,10 @@ double LantitudeLongitudeDist(double lon1,double lat1,
         _mapView.showsUserLocation = YES; //重新启动
         isGetLoction = NO;
         
+        
         //正在定位您当前位置...
         [((UIButton *)[self.myTableHeadView viewWithTag:1]) setTitle:@"正在定位您当前位置..." forState:UIControlStateNormal];
         [((UIActivityIndicatorView *)[self.myTableHeadView viewWithTag:2]) startAnimating];
-
     }
     return;
 }
@@ -298,11 +303,15 @@ double LantitudeLongitudeDist(double lon1,double lat1,
     return;
 }
 
+///////////baidu loction//////////
 - (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
 {
 	if (userLocation != nil) {
 		NSLog(@"%f %f", userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude);
 	}
+    
+    //sent to currentLoction struct
+    currentLoction = userLocation.location.coordinate;
     
     //stop get location
     mapView.showsUserLocation = NO;
@@ -335,16 +344,48 @@ double LantitudeLongitudeDist(double lon1,double lat1,
     isGetLoction = YES;
 	return;
 }
+/////////
 
+//////IOS SDK Loction/////
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
+{
+    if (newLocation != nil) {
+		NSLog(@"%f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+	}
+    
+    //stop get location
+    [manager stopUpdatingLocation];
+    //
+    _search.delegate = self;
+    [_search reverseGeocode:newLocation.coordinate];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    
+}
+///////
+
+/////get loction
 - (void)onGetAddrResult:(BMKAddrInfo*)result errorCode:(int)error
 {
     NSLog(@"%@",result.strAddr);
+    
+    NSString *addInfo;
+    if (NULL == result) { // can't find
+        addInfo = [NSString stringWithFormat:@"经度:%.5lf  伟度:%.5lf",currentLoction.longitude,currentLoction.latitude];
+    }
+    else {
+        addInfo = result.strAddr;
+    }
+    
     //set address
-    [((UILabel*)[self.myLoctionView viewWithTag:2]) setText:result.strAddr];
+    [((UILabel*)[self.myLoctionView viewWithTag:2]) setText:addInfo];
     
     //get near honst   result.geoPt
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){28.1904, 113.01328};
-    NSArray *valArray = [[self GetNearPonitOnCenterPoint:pt MaxNumber:5] retain];
+    //CLLocationCoordinate2D pt = (CLLocationCoordinate2D){28.1904, 113.01328};
+    NSArray *valArray = [[self GetNearPonitOnCenterPoint:result.geoPt MaxNumber:5] retain];
     
     //add to tableView
     [myDicTableData setObject:valArray forKey:@"附近家润多店"];
